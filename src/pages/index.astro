@@ -1,16 +1,20 @@
 ---
-
+import Layout from "../layouts/Layout.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout pageTitle="Home Page" description="My blog page using astro js framework.">
+      <section class="max-w-screen-xl flex justify-between items-center flex-row-reverse mt-[200px] mx-auto">
+            <div class="hero-image py-8 relative bg-white">
+                <img src="https://mabsrencode.com/images/edited3.png" alt="">
+            </div>
+            <div>
+                
+            </div>
+      </section>
+</Layout>
+<style>
+    .hero-image{
+        clip-path: circle(50% at 50% 50%);
+        max-width: 400px;
+    }
+</style>
