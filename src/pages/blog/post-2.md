@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 title: Running out of sample post ideas
 date: 2024-01-05
 author: Reniel George Mababa

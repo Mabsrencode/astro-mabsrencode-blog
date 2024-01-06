@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 title: Building an Astro Post Tag Component
 date: 2024-01-05
 author: Reniel George Mababa

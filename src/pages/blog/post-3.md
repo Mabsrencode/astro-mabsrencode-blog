@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 title: Beginning with CSS
 date: 2024-01-05
 author: Reniel George Mababa

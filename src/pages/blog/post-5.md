@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 title: JavaScript SchmavaScript
 date: 2024-01-05
 author: Reniel George Mababa

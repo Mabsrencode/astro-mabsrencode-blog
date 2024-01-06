@@ -1,9 +1,13 @@
 ---
+import PostCard from "../../components/PostCard.astro";
 import Layout from "../../layouts/Layout.astro"
+const allPosts = await Astro.glob("./*.md")
 ---
 
-<Layout pageTitle="Blog" description="Explore a diverse range of articles and blog posts on our platform. Our blog covers topics such as technology, lifestyle, health, and more. Discover expert insights, practical tips, and engaging content to enhance your knowledge and enjoyment. Stay informed and entertained with our thoughtfully curated collection of blog posts.">
-    <section class="max-w-screen-xl">
-        
+<Layout title="My Blog" description="Explore a diverse range of articles and blog posts on our platform. Our blog covers topics such as technology, lifestyle, health, and more. Discover expert insights, practical tips, and engaging content to enhance your knowledge and enjoyment. Stay informed and entertained with our thoughtfully curated collection of blog posts.">
+    <section class="max-w-screen-xl mx-auto mt-[200px]">
+      {
+        allPosts.map((post)=><PostCard {post}/>)
+      }
     </section>
 </Layout>

@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/BlogLayout.astro"
 title: Why is this CSS so weird?
 date: 2024-01-05
 author: Reniel George Mababa
