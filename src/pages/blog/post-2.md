@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogLayout.astro"
 title: Running out of sample post ideas
-date: 2024-01-05
+date: 2024-01-26
 author: Reniel George Mababa
 image: { src: "/images/post-2.jpg", alt: "A picture of a coder" }
 description: Sometimes you just run out of ideas for sample blog posts. It’s no one’s fault, it’s just the way it is.

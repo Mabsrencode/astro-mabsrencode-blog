@@ -1,20 +1,55 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import PostCard from "../components/PostCard.astro";
+import { formatBlogPosts } from "../js/utils";
+const allPosts = await Astro.glob("./blog/*.md");
+const formattedPosts = formatBlogPosts(allPosts, {
+  limit: 3,
+});
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home Page" description="My blog page using astro js framework.">
-      <section class="max-w-screen-xl flex justify-between items-center flex-row-reverse mt-[200px] mx-auto">
-            <div class="hero-image py-8 relative bg-white">
-                <img src="https://mabsrencode.com/images/edited3.png" alt="">
-            </div>
-            <div>
-                
-            </div>
-      </section>
+  <section class="lg:sticky top-[12%]  h-full w-[40%]">
+    <div>
+      <h1>Reniel George Mababa</h1>
+      <h2>Front-End Developer</h2>
+      <div>
+        <p>
+          Focus on creating things with interactions and animations. With a
+          knack for turning problems and opportunities into user-driven
+          strategic solutions with delightful and intuitive interface design.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="w-[60%] py-6">
+    <div>
+      <p>
+        I am an Front-end Developer & UI Developer. Focused on creating things
+        with interactions and animations. With a knack for turning problems and
+        opportunities into user-driven strategic solutions with delightful and
+        intuitive interface design.
+      </p>
+      <p>
+        I enjoy spending time fixing minor details and learning new things about
+        web development, particularly front-end and UI development, in order to
+        improve my skills and knowledge. Also I like working in a team, you'll
+        learn faster and much more. “As the saying goes, two heads are better
+        than one.
+      </p>
+    </div>
+    <div>
+      {
+        formattedPosts.map((post) => (
+          <PostCard frontmatter={post.frontmatter} url={post.url} />
+        ))
+      }
+    </div>
+  </section>
 </Layout>
 <style>
-    .hero-image{
-        clip-path: circle(50% at 50% 50%);
-        max-width: 400px;
-    }
+  .hero-image {
+    clip-path: circle(50% at 50% 50%);
+    max-width: 400px;
+  }
 </style>
