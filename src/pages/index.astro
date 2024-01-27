@@ -11,10 +11,10 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Home Page" description="My blog page using astro js framework.">
   <section class="lg:sticky top-[12%]  lg:h-full lg:w-[50%]">
     <div class="mt-24">
-      <h1 class="lg:text-6xl">Reniel George Mababa</h1>
-      <h2 class="mt-2 lg:text-4xl text-gray-400">Front-End Developer</h2>
+      <h1 class="text-4xl lg:text-6xl">Reniel George Mababa</h1>
+      <h2 class="mt-2 text-2xl lg:text-4xl text-gray-400">Front-End Developer</h2>
       <div class="mt-2">
-        <p class="text-gray-400 text-justify lg:w-11/12">
+        <p class="text-gray-400 text-justify text-sm lg:text-base lg:w-11/12">
           Focus on creating things with interactions and animations. With a
           knack for turning problems and opportunities into user-driven
           strategic solutions with delightful and intuitive interface design.
@@ -23,8 +23,8 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
   <section class="lg:w-[50%] mt-24">
-   <div >
-     <div class="text-justify">
+   <div>
+     <div class="text-justify lg:text-lg">
       <p>
         I am an Front-end Developer & UI Developer. Focused on creating things
         with interactions and animations. With a knack for turning problems and
@@ -40,7 +40,7 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </div>
     <div class="mt-24">
-      <h1 class="lg:text-6xl">Latest Blogs</h1>
+      <h1 class="text-4xl lg:text-6xl mb-3">Latest Blogs</h1>
       {
         formattedPosts.map((post) => (
           <PostCard frontmatter={post.frontmatter} url={post.url} />

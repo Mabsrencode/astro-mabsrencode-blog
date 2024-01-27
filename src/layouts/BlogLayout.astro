@@ -10,13 +10,5 @@ const {title, description, date, category, author, image} = frontmatter;
 <Layout {title} {description}>
    <section class="max-w-screen-xl mx-auto mt-[200px]">
      <PostHeader {title} {description} {date} {category} {image} {author} />
-    <div class="post-content">
-        <div class="content">
-            <slot/>
-        </div>
-        <div class="sidebar">
-
-        </div>
-    </div>
    </section>
 </Layout>
