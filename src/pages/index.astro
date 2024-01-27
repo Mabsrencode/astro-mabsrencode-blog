@@ -9,12 +9,12 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home Page" description="My blog page using astro js framework.">
-  <section class="lg:sticky top-[12%]  h-full w-[40%]">
-    <div>
-      <h1>Reniel George Mababa</h1>
-      <h2>Front-End Developer</h2>
-      <div>
-        <p>
+  <section class="lg:sticky top-[12%]  lg:h-full lg:w-[50%]">
+    <div class="mt-24">
+      <h1 class="lg:text-6xl">Reniel George Mababa</h1>
+      <h2 class="mt-2 lg:text-4xl text-gray-400">Front-End Developer</h2>
+      <div class="mt-2">
+        <p class="text-gray-400 text-justify lg:w-11/12">
           Focus on creating things with interactions and animations. With a
           knack for turning problems and opportunities into user-driven
           strategic solutions with delightful and intuitive interface design.
@@ -22,15 +22,16 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
-  <section class="w-[60%] py-6">
-    <div>
+  <section class="lg:w-[50%] mt-24">
+   <div >
+     <div class="text-justify">
       <p>
         I am an Front-end Developer & UI Developer. Focused on creating things
         with interactions and animations. With a knack for turning problems and
         opportunities into user-driven strategic solutions with delightful and
         intuitive interface design.
       </p>
-      <p>
+      <p class="mt-2">
         I enjoy spending time fixing minor details and learning new things about
         web development, particularly front-end and UI development, in order to
         improve my skills and knowledge. Also I like working in a team, you'll
@@ -38,13 +39,15 @@ import Layout from "../layouts/Layout.astro";
         than one.
       </p>
     </div>
-    <div>
+    <div class="mt-24">
+      <h1 class="lg:text-6xl">Latest Blogs</h1>
       {
         formattedPosts.map((post) => (
           <PostCard frontmatter={post.frontmatter} url={post.url} />
         ))
       }
     </div>
+   </div>
   </section>
 </Layout>
 <style>
