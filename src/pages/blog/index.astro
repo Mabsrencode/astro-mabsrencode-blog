@@ -7,7 +7,10 @@ const formattedPosts = formatBlogPosts(allPosts)
 ---
 
 <Layout title="My Blog" description="Explore a diverse range of articles and blog posts on our platform. Our blog covers topics such as technology, lifestyle, health, and more. Discover expert insights, practical tips, and engaging content to enhance your knowledge and enjoyment. Stay informed and entertained with our thoughtfully curated collection of blog posts.">
-   <div>
+   <section class="mt-24 lg:w-[50%]">
+    <h1 class="mb-12 text-6xl">Blogs</h1>
+    <div>
      {formattedPosts.map((post)=><PostCard frontmatter={post.frontmatter} url={post.url}></PostCard>)}
    </div>
+   </section>
 </Layout> 

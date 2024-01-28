@@ -1,21 +1,38 @@
 ---
-import { Image } from 'astro:assets';
-import  {slugify, formatDate} from '../js/utils'
-const {category, title, author, date, image} = Astro.props;
-
+import { Image } from "astro:assets";
+import { slugify, formatDate } from "../js/utils";
+import moment from "moment";
+const { category, title, author, date, image, description } = Astro.props;
+const blogDate = formatDate(date);
 ---
+
 <header>
-        <div class="container">
-            <small>
-                <a href={`/category/${slugify(category)}/`}>{category}</a>
-            </small>
-        </div>
-        <h1>{title}</h1>
-        <p>by <a href={`/author/${slugify(author)}/`}>{author}</a>. {formatDate(date)}</p>
-        <Image src={image.src} alt={image.src} width="1600"
-  height="900"  decoding="async"
-  loading="lazy"
-  format='avif'
-  quality={80}
-  class=''/>
-    </header>
+  <div class="container">
+    <small>
+      <a
+        href={`/category/${slugify(category)}/`}
+        class="bg-gray-500 rounded p-1 px-4 font-medium mr-2">{category}</a
+      ><span class="text-gray-400">{moment(blogDate).fromNow()}</span>
+    </small>
+    <div class="content mt-4">
+      <h1 class="text-4xl">{title}</h1>
+      <p class="text-gray-400">
+        by <a href={`/author/${slugify(author)}/`}>{author}</a>.
+      </p>
+    </div>
+     <div class="mt-6">
+    <Image
+      src={image.src}
+      alt={image.src}
+      width="1600"
+      height="900"
+      decoding="async"
+      loading="lazy"
+      format="avif"
+      quality={80}
+      class="rounded mb-2"
+    />
+  <p class="mb-6 text-gray-400">{description}</p>
+ </div>
+  </div>
+</header>
