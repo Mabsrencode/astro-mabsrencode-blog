@@ -1,0 +1,16 @@
+---
+import {slugify} from '../../js/utils';
+import type { GetStaticPaths } from "astro";
+export const getStaticPaths = (() => {
+    
+    return [
+        {
+            params:{category: slugify("Reference Docs")},
+            props:{name: "Reference Docs"},
+        }
+    ];
+}) satisfies GetStaticPaths;
+const {category} = Astro.params;
+const {name} =Astro.props;
+---
+{name}
