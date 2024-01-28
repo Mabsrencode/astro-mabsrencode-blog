@@ -1,6 +1,6 @@
 ---
-import {slugify} from '../../js/utils';
-import type { GetStaticPaths } from "astro";
+import PostCard from "../../components/PostCard.astro";
+import { slugify, formatBlogPosts } from "../../js/utils";
 export const getStaticPaths = (() => {
     
     return [
@@ -12,5 +12,41 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 const {category} = Astro.params;
 const {name} =Astro.props;
+const allPosts = await Astro.glob("../blog/*md");
+const formattedPosts = formatBlogPosts(allPosts);
+const catPosts = formattedPosts.filter((post)=>slugify(post.frontmatter.category))
+import Layout from "../../layouts/Layout.astro";
+import type { GetStaticPaths } from "astro";
 ---
-{name}
+
+<Layout title={name} description={`Post about ${name}`}>
+  <section class="lg:sticky top-[12%]  lg:h-full lg:w-[50%]">
+    <div class="mt-24">
+      <h1 class="text-4xl lg:text-6xl">Reniel George Mababa</h1>
+      <h2 class="mt-2 text-2xl lg:text-4xl text-gray-400">Front-End Developer</h2>
+      <div class="mt-2">
+        <p class="text-gray-400 text-justify text-sm lg:text-base lg:w-11/12">
+          Focus on creating things with interactions and animations. With a
+          knack for turning problems and opportunities into user-driven
+          strategic solutions with delightful and intuitive interface design.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="lg:w-[50%] mt-24">
+   <div>
+      <h1 class="text-4xl lg:text-6xl mb-3">Post about {name}</h1>
+      {
+        formattedPosts.map((post) => (
+          <PostCard frontmatter={post.frontmatter} url={post.url} />
+        ))
+      }
+   </div>
+  </section>
+</Layout>
+<style>
+  .hero-image {
+    clip-path: circle(50% at 50% 50%);
+    max-width: 400px;
+  }
+</style>
