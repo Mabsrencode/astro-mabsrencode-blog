@@ -19,7 +19,7 @@ const now = new Date()
   <div class="content mt-4">
     <a href={url} class="text-4xl"> <h1>{title}</h1></a>
     <p class="text-gray-400">
-      by <a href={`/author/${slugify(author)}/`}>{author}</a>.
+      by <a class="hover:underline" href={`/author/${slugify(author)}/`}>{author}</a>.
     </p>
   </div>
  <div class="mt-6">
