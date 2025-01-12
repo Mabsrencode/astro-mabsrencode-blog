@@ -2,15 +2,24 @@
 import PostCard from "../../components/PostCard.astro";
 import Layout from "../../layouts/Layout.astro"
 import { formatBlogPosts } from "../../js/utils";
-const allPosts = await Astro.glob("./*.md")
-const formattedPosts = formatBlogPosts(allPosts)
+export async function getStaticPaths({paginate}){
+   const allPosts = await Astro.glob("./*.md")
+   const formattedPosts = formatBlogPosts(allPosts)
+   return paginate(formattedPosts,{
+      pageSize: 3,
+   })
+}
+
+const {page} =Astro.props;
+console.log(page);
+
 ---
 
 <Layout title="My Blog" description="Explore a diverse range of articles and blog posts on our platform. Our blog covers topics such as technology, lifestyle, health, and more. Discover expert insights, practical tips, and engaging content to enhance your knowledge and enjoyment. Stay informed and entertained with our thoughtfully curated collection of blog posts.">
    <section class="mt-24 lg:w-[50%]">
     <h1 class="mb-12 text-6xl">Blogs</h1>
     <div>
-     {formattedPosts.map((post)=><PostCard frontmatter={post.frontmatter} url={post.url}></PostCard>)}
+     {page.data.map((post)=><PostCard frontmatter={post.frontmatter} url={post.url}></PostCard>)}
    </div>
    </section>
 </Layout> 

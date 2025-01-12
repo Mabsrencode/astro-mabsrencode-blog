@@ -1,7 +1,7 @@
 ---
 import PostCard from "../../components/PostCard.astro";
 import { slugify, formatBlogPosts } from "../../js/utils";
-export const getStaticPaths = (() => {
+export async function getStaticPaths(){
     
     return [
         {
@@ -9,14 +9,13 @@ export const getStaticPaths = (() => {
             props:{name: "Reference Docs"},
         }
     ];
-}) satisfies GetStaticPaths;
+}
 const {category} = Astro.params;
 const {name} =Astro.props;
 const allPosts = await Astro.glob("../blog/*md");
 const formattedPosts = formatBlogPosts(allPosts);
 const catPosts = formattedPosts.filter((post)=>slugify(post.frontmatter.category))
 import Layout from "../../layouts/Layout.astro";
-import type { GetStaticPaths } from "astro";
 ---
 
 <Layout title={name} description={`Post about ${name}`}>

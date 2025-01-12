@@ -21,7 +21,6 @@ const {author} = Astro.params;
 const {posts, authorName} =Astro.props;
 
 import Layout from "../../layouts/Layout.astro";
-import type { GetStaticPaths } from "astro";
 ---
 
 <Layout title={authorName} description={`Post about ${authorName}`}>
